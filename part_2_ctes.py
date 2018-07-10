@@ -5,5 +5,5 @@ def cte_deletes_duplicates():
 def correct_above_avg_sales():
     return """SELECT locations.city, sales.date_of_sale, sales.amount from sales JOIN locations ON
     sales.location_id = locations.id
-    WHERE amount > (SELECT AVG(amount) from sales);
+    WHERE sales.amount > (SELECT AVG(amount) from sales);
     """
